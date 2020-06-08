@@ -13,14 +13,14 @@ class Movies extends Component {
 
   render() {
     const { length: numOfMovies } = this.state.movies;
-    if (numOfMovies === 0) return <h2>There are no movies in the database.</h2>;
+    if (numOfMovies === 0) return <p>There are no movies in the database.</p>;
     return (
       <React.Fragment>
-        <h2>
+        <p>
           Showing{" "}
           <span>{numOfMovies === 1 ? "1 movie" : numOfMovies + " movies"}</span>{" "}
           in the database.
-        </h2>
+        </p>
 
         {
           <table className="table">
