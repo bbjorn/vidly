@@ -2,15 +2,15 @@ import React from "react";
 import Like from "./common/like.jsx";
 
 const MoviesTable = (props) => {
-  const { movies, onDelete, onLike } = props;
+  const { movies, onDelete, onLike, onSort } = props;
   return (
     <table className="table">
       <thead>
         <tr>
-          <th>Title</th>
-          <th>Genre</th>
-          <th>Stock</th>
-          <th>Rate</th>
+          <th onClick={() => onSort("title")}>Title</th>
+          <th onClick={() => onSort("genre.name")}>Genre</th>
+          <th onClick={() => onSort("numberInStock")}>Stock</th>
+          <th onClick={() => onSort("dailyRentalRate")}>Rate</th>
           <th />
           <th />
         </tr>
@@ -26,13 +26,13 @@ const MoviesTable = (props) => {
               <Like
                 like={movie.liked}
                 onClick={() => {
-                  this.onLike(movie);
+                  onLike(movie);
                 }}
               />
             </td>
             <td>
               <button
-                onClick={() => this.onDelete(movie)}
+                onClick={() => onDelete(movie)}
                 className="btn btn-danger btn-sm"
               >
                 Delete
