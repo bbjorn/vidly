@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSortDown, faSortUp } from "@fortawesome/free-solid-svg-icons";
-
-library.add(faSortDown, faSortUp);
+import { faSortUp, faSortDown } from "@fortawesome/free-solid-svg-icons";
 
 // Colums: array
 // SortColumn: object
