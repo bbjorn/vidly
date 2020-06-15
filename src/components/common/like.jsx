@@ -10,7 +10,7 @@ const Like = (props) => {
   if (props.like === true)
     return (
       <FontAwesomeIcon
-        onClick={this.props.onClick}
+        onClick={props.onClick}
         icon={faHeart}
         aria-hidden="true"
       />
