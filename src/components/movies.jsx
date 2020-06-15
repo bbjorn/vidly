@@ -6,6 +6,7 @@ import Pagination from "./common/pagination.jsx";
 class Movies extends Component {
   state = {
     movies: getMovies(),
+    pageSize: 4,
   };
 
   handleDelete = (movie) => {
@@ -14,12 +15,15 @@ class Movies extends Component {
   };
 
   handleLike = (movie) => {
-    console.log("Like clicked", movie.title);
     const movies = [...this.state.movies];
     const index = movies.indexOf(movie);
     movies[index] = { ...movies[index] };
     movies[index].liked = !movies[index].liked;
     this.setState({ movies });
+  };
+
+  handlePageChange = (page) => {
+    console.log(page);
   };
 
   render() {
@@ -73,7 +77,11 @@ class Movies extends Component {
             </tbody>
           </table>
         }
-        <Pagination />
+        <Pagination
+          itemsCount={numOfMovies}
+          pageSize={this.state.pageSize}
+          onPageChange={this.handlePageChange}
+        />
       </React.Fragment>
     );
   }
