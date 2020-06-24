@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Joi from "joi-browser";
 import Input from "./input";
+import Dropdown from "./dropdown";
 
 class Form extends Component {
   state = { data: {}, erros: {} };
@@ -50,6 +51,20 @@ class Form extends Component {
       <button disabled={this.validate()} className="btn btn-primary">
         {label}
       </button>
+    );
+  }
+
+  renderDropdown(name, label, options) {
+    const { data, errors } = this.state;
+    return (
+      <Dropdown
+        name={name}
+        value={data[name]}
+        label={label}
+        options={options}
+        onChange={this.handleChange}
+        error={errors[name]}
+      />
     );
   }
 
