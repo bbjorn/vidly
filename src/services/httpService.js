@@ -4,7 +4,9 @@ import logger from "./logService";
 
 axios.interceptors.response.use(null, (error) => {
   const expectedError =
-    error.reponse && error.reponse.status >= 400 && error.repose.status < 500;
+    error.response &&
+    error.response.status >= 400 &&
+    error.response.status < 500;
 
   if (!expectedError) {
     //Unexpected (Network Down, server down, database down, bug)
